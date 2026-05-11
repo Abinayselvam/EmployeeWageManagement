@@ -1,6 +1,5 @@
 import java.util.Random;
 
-import static jdk.internal.org.jline.utils.Colors.s;
 
 public class EmployeeWage {
     static final int Wage_Per_hour=20;
@@ -22,6 +21,7 @@ public class EmployeeWage {
         uc2_dailyWage();
         uc3_partTimeWage();
         uc4_switchCase();
+        uc5_monthlyWage();
 
     }
     static void uc1_checkAttendance()
@@ -50,20 +50,25 @@ public class EmployeeWage {
     static  void uc4_switchCase()
     {
         int empCheck=random.nextInt(3);
-        int emphour;
-        switch (empCheck)
-        {
-            case Is_Full_Time :
-                emphour=Full_Day_Hour;
-                break;
-            case Is_Part_Time:
-                emphour=Part_Time_Hour;
-                break;
-            default:
-                emphour=0;
-                break;
-        }
-        int wage=emphour* Wage_Per_hour;
+        int emperor = switch (empCheck) {
+            case Is_Full_Time -> Full_Day_Hour;
+            case Is_Part_Time -> Part_Time_Hour;
+            default -> 0;
+        };
+        int wage= emperor * Wage_Per_hour;
         System.out.println("Employee Wage using switch: "+wage);
+    }
+    static  void uc5_monthlyWage()
+    {
+        int totalWage=0;
+
+        for(int day=1;day<=Max_Working_Day;day++)
+        {
+            int empCheck = random.nextInt(3);
+            int empHours = (empCheck==Is_Full_Time)? Full_Day_Hour:
+                    (empCheck== Is_Part_Time)?Part_Time_Hour:0;
+            totalWage+=empHours+Wage_Per_hour;
+        }
+        System.out.println("UC5: Monthly Wage:"+totalWage);
     }
 }
