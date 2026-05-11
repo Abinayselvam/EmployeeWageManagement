@@ -18,6 +18,7 @@ public class EmployeeWage {
         System.out.println("Welcome Employee Wage Computation Page");
         uc1_checkAttendance();
         uc2_dailyWage();
+        uc3_partTimeWage();
 
     }
     static void uc1_checkAttendance()
@@ -35,5 +36,12 @@ public class EmployeeWage {
     {
         int wage= Full_Day_Hour * Wage_Per_hour;
         System.out.println("UC2: Employee wage per day: "+wage);
+    }
+    static void uc3_partTimeWage()
+    {
+        int empCheck= random.nextInt(2);
+        int empHours=(empCheck == 1) ? Part_Time_Hour : 0;
+        int wage= empHours* Wage_Per_hour;
+        System.out.println("UC3: Part time wage: "+wage);
     }
 }
