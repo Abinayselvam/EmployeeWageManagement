@@ -22,6 +22,7 @@ public class EmployeeWage {
         uc3_partTimeWage();
         uc4_switchCase();
         uc5_monthlyWage();
+        uc6_wageWithCondition();
 
     }
     static void uc1_checkAttendance()
@@ -70,5 +71,23 @@ public class EmployeeWage {
             totalWage+=empHours+Wage_Per_hour;
         }
         System.out.println("UC5: Monthly Wage:"+totalWage);
+    }
+    static void uc6_wageWithCondition() {
+        int totalHours = 0;
+        int totalDays = 0;
+        int totalWage = 0;
+
+        while (totalHours < Max_Working_Hours && totalDays < Max_Working_Day) {
+            totalDays++;
+
+            int empCheck = random.nextInt(3);
+            int empHours = (empCheck == Is_Full_Time) ? Full_Day_Hour :
+                    (empCheck == Is_Part_Time) ? Part_Time_Hour : 0;
+
+            totalHours += empHours;
+            totalWage += empHours * Wage_Per_hour;
+        }
+
+        System.out.println("UC6: Total Wage = " + totalWage);
     }
 }
