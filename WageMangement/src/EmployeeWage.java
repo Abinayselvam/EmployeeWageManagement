@@ -21,6 +21,7 @@ public class EmployeeWage {
         uc2_dailyWage();
         uc3_partTimeWage();
         uc4_switchCase();
+        uc5_monthlyWage();
 
     }
     static void uc1_checkAttendance()
@@ -56,5 +57,18 @@ public class EmployeeWage {
         };
         int wage= emperor * Wage_Per_hour;
         System.out.println("Employee Wage using switch: "+wage);
+    }
+    static  void uc5_monthlyWage()
+    {
+        int totalWage=0;
+
+        for(int day=1;day<=Max_Working_Day;day++)
+        {
+            int empCheck = random.nextInt(3);
+            int empHours = (empCheck==Is_Full_Time)? Full_Day_Hour:
+                    (empCheck== Is_Part_Time)?Part_Time_Hour:0;
+            totalWage+=empHours+Wage_Per_hour;
+        }
+        System.out.println("UC5: Monthly Wage:"+totalWage);
     }
 }
