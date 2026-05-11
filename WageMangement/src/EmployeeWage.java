@@ -17,6 +17,7 @@ public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("Welcome Employee Wage Computation Page");
         uc1_checkAttendance();
+        uc2_dailyWage();
 
     }
     static void uc1_checkAttendance()
@@ -27,7 +28,12 @@ public class EmployeeWage {
             System.out.println("UC1: Employee present");
         }
         else {
-            System.out.println("UC2: Employee Absent");
+            System.out.println("UC1: Employee Absent");
         }
+    }
+    static void uc2_dailyWage()
+    {
+        int wage= Full_Day_Hour * Wage_Per_hour;
+        System.out.println("UC2: Employee wage per day: "+wage);
     }
 }
