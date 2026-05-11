@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import static jdk.internal.org.jline.utils.Colors.s;
+
 public class EmployeeWage {
     static final int Wage_Per_hour=20;
     static  final int Full_Day_Hour=8;
@@ -19,6 +21,7 @@ public class EmployeeWage {
         uc1_checkAttendance();
         uc2_dailyWage();
         uc3_partTimeWage();
+        uc4_switchCase();
 
     }
     static void uc1_checkAttendance()
@@ -43,5 +46,24 @@ public class EmployeeWage {
         int empHours=(empCheck == 1) ? Part_Time_Hour : 0;
         int wage= empHours* Wage_Per_hour;
         System.out.println("UC3: Part time wage: "+wage);
+    }
+    static  void uc4_switchCase()
+    {
+        int empCheck=random.nextInt(3);
+        int emphour;
+        switch (empCheck)
+        {
+            case Is_Full_Time :
+                emphour=Full_Day_Hour;
+                break;
+            case Is_Part_Time:
+                emphour=Part_Time_Hour;
+                break;
+            default:
+                emphour=0;
+                break;
+        }
+        int wage=emphour* Wage_Per_hour;
+        System.out.println("Employee Wage using switch: "+wage);
     }
 }
