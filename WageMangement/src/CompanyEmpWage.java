@@ -1,11 +1,15 @@
+import java.util.ArrayList;
+
 public class CompanyEmpWage {
 
-    private final String companyName;
-    private final int wagePerHour;
-    private final int maxWorkingDays;
-    private final int maxWorkingHours;
+     String companyName;
+    int wagePerHour;
+    int maxWorkingDays;
+    int maxWorkingHours;
 
-    private int totalSalary;
+    int totalSalary;
+    public ArrayList<Integer> dailyWages = new ArrayList<>();
+
 
     public CompanyEmpWage(String companyName, int wagePerHour,
                           int maxWorkingDays, int maxWorkingHours) {
